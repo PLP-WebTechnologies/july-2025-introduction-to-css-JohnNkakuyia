@@ -1,0 +1,87 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg: #cbd1de;            /* page background */
+  --card-bg: #111827;       /* card base color */
+  --card-accent: #1f2937;   /* subtle gradient end */
+  --text: #e5e7eb;          /* primary text */
+  --muted: #9ca3af;         /* secondary text */
+  --brand: #baeb25;         /* highlight color (blue-600) */
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+  background: radial-gradient(1200px 800px at 20% 10%, #1e293b 0%, #0b1220 60%, #050a16 100%), var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Layout */
+.page {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Card */
+.card {
+  width: min(680px, 92vw);
+  background: linear-gradient(180deg, var(--card-bg), var(--card-accent));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card__img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 16px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.card__title {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+}
+
+.card__text {
+  font-size: 1.05rem;
+  text-align: center;
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 52ch;
+}
+
+/* Highlight the key tech: bold + brand color + uppercase */
+.highlight {
+  font-weight: 800;
+  color: var(--brand);
+  text-transform: uppercase;
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .card { padding: 20px; }
+  .card__img { width: 120px; height: 120px; }
+}
